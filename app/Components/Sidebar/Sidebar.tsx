@@ -6,81 +6,83 @@ import { FaRegTrashAlt } from "react-icons/fa";
 import { MdOutlineArchive } from "react-icons/md";
 import { MdModeEdit } from "react-icons/md";
 import { MdAlarm } from "react-icons/md";
-import useSidebar from "@/app/Hooks/useSidebar";
+import { useToggleStore } from "@/app/store";
 
 const Sidebar = () => {
-  const { sidebarToggle, handleSidebarToggle } = useSidebar();
-  const [isTrue, setIsTrue] = useState(true);
-  useEffect(() => {
-    setIsTrue(sidebarToggle);
-  }, [handleSidebarToggle]);
-  console.log(isTrue);
+  const sidebarToggle = useToggleStore((state) => state.sidebarToggle);
+
   return (
-    <div>
-      {isTrue ? (
-        <div className=" w-72 h-screen">
-          <ul>
+    <div className="">
+      <div className=" w-auto h-screen">
+        <ul className=" space-y-3">
+          <li>
+            <Link
+              id=""
+              className="px-5 h-8   flex items-center gap-3 target:bg-red-50 hover:bg-stone-200 rounded-r-full"
+              href=""
+            >
+              <CgNotes className="md:text-lg" />
+              {<p className={`${sidebarToggle ? "flex" : "hidden"}`}>Notes</p>}
+            </Link>
+          </li>
+          <li>
+            <Link
+              id=""
+              className="px-5 h-8   flex items-center gap-3 target:bg-red-50 hover:bg-stone-200 rounded-r-full"
+              href="reminders"
+            >
+              <MdAlarm className="md:text-lg" />
+              {sidebarToggle && <p>Reminders</p>}
+            </Link>
+          </li>
+          <li>
+            <Link
+              id=""
+              className="px-5 h-8   flex items-center gap-3 target:bg-red-50 hover:bg-stone-200 rounded-r-full"
+              href=""
+            >
+              <MdModeEdit className="md:text-lg" />
+              {sidebarToggle && <p>Edit labels</p>}
+            </Link>
+          </li>
+          <li>
+            <Link
+              id=""
+              className="px-5 h-8   flex items-center gap-3 target:bg-red-50 hover:bg-stone-200 rounded-r-full"
+              href=""
+            >
+              <MdOutlineArchive className="md:text-lg" />
+              {sidebarToggle && <p>Archive</p>}
+            </Link>
+          </li>
+          <li>
+            <Link
+              id=""
+              className="px-5 h-8   flex items-center gap-3 target:bg-red-50 hover:bg-stone-200 rounded-r-full"
+              href=""
+            >
+              <FaRegTrashAlt className="md:text-lg" />
+              {sidebarToggle && <p>Trash</p>}
+            </Link>
+          </li>
+        </ul>
+      </div>
+
+      {/* <div className=" w-auto h-screen">
+          <ul className=" space-y-3">
             <li>
               <Link
-                className="px-5 py-2  flex items-center gap-3 active:bg-red-50 hover:bg-stone-200 rounded-r-full"
+                id=""
+                className="px-5 py-2  flex items-center gap-3 target:bg-red-50 hover:bg-stone-200 rounded-r-full"
                 href=""
               >
                 <CgNotes className="md:text-lg" />
-                Notes
               </Link>
             </li>
             <li>
               <Link
-                className="px-5 py-2  flex items-center gap-3 focus:bg-red-50 hover:bg-stone-200 rounded-r-full"
-                href=""
-              >
-                <MdAlarm className="md:text-lg" />
-                Reminders
-              </Link>
-            </li>
-            <li>
-              <Link
-                className="px-5 py-2  flex items-center gap-3 focus:bg-red-50 hover:bg-stone-200 rounded-r-full"
-                href=""
-              >
-                <MdModeEdit className="md:text-lg" />
-                Edit labels
-              </Link>
-            </li>
-            <li>
-              <Link
-                className="px-5 py-2  flex items-center gap-3 focus:bg-red-50 hover:bg-stone-200 rounded-r-full"
-                href=""
-              >
-                <MdOutlineArchive className="md:text-lg" />
-                Archive
-              </Link>
-            </li>
-            <li>
-              <Link
-                className="px-5 py-2  flex items-center gap-3 focus:bg-red-50 hover:bg-stone-200 rounded-r-full"
-                href=""
-              >
-                <FaRegTrashAlt className="md:text-lg" />
-                Trash
-              </Link>
-            </li>
-          </ul>
-        </div>
-      ) : (
-        <div className=" w-auto h-screen">
-          <ul>
-            <li>
-              <Link
-                className="px-5 py-2  flex items-center gap-3 active:bg-red-50 hover:bg-stone-200 rounded-r-full"
-                href=""
-              >
-                <CgNotes className="md:text-lg" />
-              </Link>
-            </li>
-            <li>
-              <Link
-                className="px-5 py-2  flex items-center gap-3 focus:bg-red-50 hover:bg-stone-200 rounded-r-full"
+                id=""
+                className="px-5 py-2  flex items-center gap-3 target:bg-red-50 hover:bg-stone-200 rounded-r-full"
                 href=""
               >
                 <MdAlarm className="md:text-lg" />
@@ -88,7 +90,8 @@ const Sidebar = () => {
             </li>
             <li>
               <Link
-                className="px-5 py-2  flex items-center gap-3 focus:bg-red-50 hover:bg-stone-200 rounded-r-full"
+                id=""
+                className="px-5 py-2  flex items-center gap-3 target:bg-red-50 hover:bg-stone-200 rounded-r-full"
                 href=""
               >
                 <MdModeEdit className="md:text-lg" />
@@ -96,7 +99,8 @@ const Sidebar = () => {
             </li>
             <li>
               <Link
-                className="px-5 py-2  flex items-center gap-3 focus:bg-red-50 hover:bg-stone-200 rounded-r-full"
+                id=""
+                className="px-5 py-2  flex items-center gap-3 target:bg-red-50 hover:bg-stone-200 rounded-r-full"
                 href=""
               >
                 <MdOutlineArchive className="md:text-lg" />
@@ -104,15 +108,15 @@ const Sidebar = () => {
             </li>
             <li>
               <Link
-                className="px-5 py-2  flex items-center gap-3 focus:bg-red-50 hover:bg-stone-200 rounded-r-full"
+                id=""
+                className="px-5 py-2  flex items-center gap-3 target:bg-red-50 hover:bg-stone-200 rounded-r-full"
                 href=""
               >
                 <FaRegTrashAlt className="md:text-lg" />
               </Link>
             </li>
           </ul>
-        </div>
-      )}
+        </div> */}
     </div>
   );
 };

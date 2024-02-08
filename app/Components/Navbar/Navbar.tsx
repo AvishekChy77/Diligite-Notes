@@ -1,17 +1,17 @@
 "use client";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Link from "next/link";
 import { IoPersonCircle } from "react-icons/io5";
 import { IoGridOutline } from "react-icons/io5";
 import { IoListOutline } from "react-icons/io5";
 import { FaBars } from "react-icons/fa6";
 import { IoSearchOutline } from "react-icons/io5";
-import useSidebar from "@/app/Hooks/useSidebar";
+import { GlobalContext } from "@/app/Provider/GlobalProvider";
+import { useToggleStore } from "@/app/store";
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(true);
-  const { sidebarToggle, handleSidebarToggle } = useSidebar();
-  console.log(sidebarToggle);
+  const handleSidebarToggle = useToggleStore((state) => state.setSidebarToggle);
   const handleToggle = () => {
     setToggle(!toggle);
   };

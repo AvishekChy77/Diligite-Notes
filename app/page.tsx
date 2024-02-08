@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Home() {
   return (
     <main>
-      <h1>Hello</h1>
+      <div className=" max-w-3xl">csdfvs</div>
     </main>
   );
 }
