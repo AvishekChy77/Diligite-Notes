@@ -6,7 +6,6 @@ import { IoGridOutline } from "react-icons/io5";
 import { IoListOutline } from "react-icons/io5";
 import { FaBars } from "react-icons/fa6";
 import { IoSearchOutline } from "react-icons/io5";
-import { GlobalContext } from "@/app/Provider/GlobalProvider";
 import { useToggleStore } from "@/app/store";
 
 const Navbar = () => {

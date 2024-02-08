@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
         <Navbar />
         <div className="pt-5 flex">
           <Sidebar />
-          <div className=" sm:mx-16 px-5 ">{children}</div>
+          <div className=" sm:mx-16 px-5  w-full">{children}</div>
         </div>
       </body>
     </html>

@@ -67,56 +67,6 @@ const Sidebar = () => {
           </li>
         </ul>
       </div>
-
-      {/* <div className=" w-auto h-screen">
-          <ul className=" space-y-3">
-            <li>
-              <Link
-                id=""
-                className="px-5 py-2  flex items-center gap-3 target:bg-red-50 hover:bg-stone-200 rounded-r-full"
-                href=""
-              >
-                <CgNotes className="md:text-lg" />
-              </Link>
-            </li>
-            <li>
-              <Link
-                id=""
-                className="px-5 py-2  flex items-center gap-3 target:bg-red-50 hover:bg-stone-200 rounded-r-full"
-                href=""
-              >
-                <MdAlarm className="md:text-lg" />
-              </Link>
-            </li>
-            <li>
-              <Link
-                id=""
-                className="px-5 py-2  flex items-center gap-3 target:bg-red-50 hover:bg-stone-200 rounded-r-full"
-                href=""
-              >
-                <MdModeEdit className="md:text-lg" />
-              </Link>
-            </li>
-            <li>
-              <Link
-                id=""
-                className="px-5 py-2  flex items-center gap-3 target:bg-red-50 hover:bg-stone-200 rounded-r-full"
-                href=""
-              >
-                <MdOutlineArchive className="md:text-lg" />
-              </Link>
-            </li>
-            <li>
-              <Link
-                id=""
-                className="px-5 py-2  flex items-center gap-3 target:bg-red-50 hover:bg-stone-200 rounded-r-full"
-                href=""
-              >
-                <FaRegTrashAlt className="md:text-lg" />
-              </Link>
-            </li>
-          </ul>
-        </div> */}
     </div>
   );
 };
