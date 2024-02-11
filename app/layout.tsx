@@ -1,5 +1,6 @@
 import { Inter } from "next/font/google";
-import Navbar from "../app/Components/Navbar/Navbar";
+import Navbar from "./Components/Navbar/Navbar";
+import Provider from "./Components/Provider";
 import Sidebar from "./Components/Sidebar/Sidebar";
 import "./globals.css";
 
@@ -18,11 +19,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} container mx-auto`}>
-        <Navbar />
-        <div className="pt-5 flex">
-          <Sidebar />
-          <div className=" sm:mx-16 px-5  w-full">{children}</div>
-        </div>
+        <Provider>
+          <Navbar />
+          <div className="pt-5 flex mt-20">
+            <Sidebar />
+            <div className="sm:mx-16 px-5 w-full">{children}</div>
+          </div>
+        </Provider>
       </body>
     </html>
   );

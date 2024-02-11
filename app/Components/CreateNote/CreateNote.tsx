@@ -1,8 +1,7 @@
 "use client";
 import React, { useState } from "react";
-import { LuUndo2 } from "react-icons/lu";
-import { LuRedo2 } from "react-icons/lu";
-const MakeCard = () => {
+import { LuRedo2, LuUndo2 } from "react-icons/lu";
+const CreateNote = () => {
   const [isTrue, setValue] = useState(false);
   const [text, setText] = useState("");
   const [history, setHistory] = useState<string[]>([]);
@@ -73,4 +72,4 @@ const MakeCard = () => {
   );
 };
 
-export default MakeCard;
+export default CreateNote;
