@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 interface Note {
+  id: number;
   title: string;
   description: string;
 }
@@ -52,7 +53,10 @@ const useNoteState = () => {
     const form = e.target;
     const title = form.title.value;
     const description = form.description.value;
+    const strData = localStorage.getItem("notes");
+    const length = JSON.parse(strData ? strData : "{}").length || 0;
     const NewNote = {
+      id: length + 1,
       title,
       description,
     };
