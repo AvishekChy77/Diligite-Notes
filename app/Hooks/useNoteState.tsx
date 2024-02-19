@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
 interface Note {
   title: string;
   description: string;
@@ -11,6 +13,11 @@ const useNoteState = () => {
   const [history, setHistory] = useState<string[]>([]);
   const [historyIndex, setHistoryIndex] = useState<number>(-1);
   const [notes, setNotes] = useState<Note[]>([]);
+
+  useEffect(() => {
+    const initialNotes = JSON.parse(localStorage.getItem("notes") as string);
+    setNotes(() => (initialNotes ? [...initialNotes] : []));
+  }, []);
 
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     const newText = event.target.value;
