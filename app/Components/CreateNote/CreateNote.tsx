@@ -1,6 +1,5 @@
 "use client";
 import useNoteState from "@/app/Hooks/useNoteState";
-import { useState } from "react";
 import { LuRedo2, LuUndo2 } from "react-icons/lu";
 
 const CreateNote = () => {
@@ -27,7 +26,7 @@ const CreateNote = () => {
           value={text}
           onChange={handleChange}
           onClick={() => setValue(true)}
-          className="w-full font-medium h-14 rounded-lg p-2 focus:outline-none resize-none"
+          className="w-full font-medium h-14 rounded-lg p-2 focus:outline-none resize-none text-black"
           placeholder={isTrue ? "Title" : "Take a note..."}
         ></textarea>
         <textarea
@@ -38,7 +37,7 @@ const CreateNote = () => {
           onClick={() => setValue(true)}
           className={`w-full h-14 rounded-lg p-2 focus:outline-none resize-none ${
             isTrue ? "visible" : "hidden"
-          }`}
+          } text-black`}
           placeholder="Take a note..."
         ></textarea>
         <div className="flex items-center justify-end mt-2 gap-3">
