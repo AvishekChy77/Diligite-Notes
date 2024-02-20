@@ -44,7 +44,7 @@ const Navbar = () => {
         <div className="flex items-center gap-5">
           <IoSearchOutline className="flex sm:hidden" />
           <div className="cursor-pointer" onClick={setStyle}>
-            {isList ? <IoGridOutline /> : <IoListOutline />}
+            {isList ? <IoListOutline /> : <IoGridOutline />}
           </div>
           <div role="button" className="">
             <div onClick={handleDropdown} className="w-10 rounded-full">
