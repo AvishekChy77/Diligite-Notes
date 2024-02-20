@@ -23,13 +23,14 @@ export interface Store {
 }
 
 export const useNoteStore = create<Store>((set) => ({
-  collection: JSON.parse(localStorage.getItem("notes") as string) || [],
+  collection: JSON.parse(localStorage.getItem("notes") || "[]") || [],
   isTrue: false,
   text: "",
   text2: "",
   history: [],
   historyIndex: -1,
 
+  // Handle value change in title field
   handleChange: (event) => {
     const newText = event.target.value;
     set((state) => ({
@@ -40,11 +41,13 @@ export const useNoteStore = create<Store>((set) => ({
     }));
   },
 
+  // Handle value change in description field
   handleChange2: (event) => {
     const newText = event.target.value;
     set((state) => ({ ...state, text2: newText }));
   },
 
+  // handle undo icon
   handleUndo: () => {
     set((state) => {
       if (state.historyIndex > 0) {
@@ -58,6 +61,7 @@ export const useNoteStore = create<Store>((set) => ({
     });
   },
 
+  // handle Redo icon
   handleRedo: () => {
     set((state) => {
       if (state.historyIndex < state.history.length - 1) {
@@ -71,6 +75,7 @@ export const useNoteStore = create<Store>((set) => ({
     });
   },
 
+  // handle cancel button
   handleCancel: () => {
     set((state) => ({
       ...state,
@@ -82,6 +87,7 @@ export const useNoteStore = create<Store>((set) => ({
     }));
   },
 
+  // minimize the create note card
   handleTruth: (value: boolean) => {
     set((state) => ({
       ...state,
@@ -89,13 +95,14 @@ export const useNoteStore = create<Store>((set) => ({
     }));
   },
 
+  // handle save button
   setCollection: (e) =>
     set((state) => {
       e.preventDefault();
       const form = e.target as HTMLFormElement;
       const newNote: Note = {
         id: state.collection.length + 1,
-        title: form.title.value,
+        title: state.text,
         description: form.description.value,
       };
 

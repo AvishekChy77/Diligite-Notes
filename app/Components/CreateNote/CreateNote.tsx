@@ -40,12 +40,15 @@ const CreateNote = () => {
         <div className="flex items-center justify-end mt-2 gap-3">
           <LuRedo2 onClick={handleRedo} color="grey" size={24} />
           <LuUndo2 onClick={handleUndo} color="grey" size={24} />
-          <button type="submit" className="bg-black text-white px-2 rounded-md">
+          <button
+            type="submit"
+            className="bg-black font-medium text-white px-2 rounded-md"
+          >
             Save
           </button>
           <button
             onClick={handleCancel}
-            className="bg-black text-white px-2 rounded-md"
+            className="bg-black font-medium text-white px-2 rounded-md"
           >
             Cancel
           </button>

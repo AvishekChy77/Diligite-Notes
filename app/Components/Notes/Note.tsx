@@ -14,7 +14,11 @@ const NoteCompnent: React.FC<Props> = ({ note }) => {
       } p-3 border shadow-sm text-black rounded-md`}
     >
       <h2 className="font-medium mb-3">{note.title}</h2>
-      <p>{note.description.slice(0, 25)}</p>
+      {note.description.length > 25 ? (
+        <p>{note.description.slice(0, 25)}...</p>
+      ) : (
+        <p>{note.description}</p>
+      )}
     </div>
   );
 };
