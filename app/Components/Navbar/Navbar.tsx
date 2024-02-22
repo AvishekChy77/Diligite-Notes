@@ -1,12 +1,18 @@
 "use client";
-import React, { useContext, useState } from "react";
+import {
+  useCardStyle,
+  useDropdownStore,
+  useToggleStore,
+} from "@/app/Stores/Store";
 import Link from "next/link";
-import { IoPersonCircle } from "react-icons/io5";
-import { IoGridOutline } from "react-icons/io5";
-import { IoListOutline } from "react-icons/io5";
+import { useState } from "react";
 import { FaBars } from "react-icons/fa6";
-import { IoSearchOutline } from "react-icons/io5";
-import { useDropdownStore, useToggleStore } from "@/app/Stores/Store";
+import {
+  IoGridOutline,
+  IoListOutline,
+  IoPersonCircle,
+  IoSearchOutline,
+} from "react-icons/io5";
 import Dropdown from "./Dropdown";
 
 const Navbar = () => {
@@ -14,10 +20,8 @@ const Navbar = () => {
 
   const handleSidebarToggle = useToggleStore((state) => state.setSidebarToggle);
   const handleDropdown = useDropdownStore((state) => state.setDropdown);
-
-  const handleToggle = () => {
-    setToggle(!toggle);
-  };
+  const setStyle = useCardStyle((state) => state.setStyle);
+  const isList = useCardStyle((state) => state.isList);
 
   return (
     <>
@@ -39,8 +43,8 @@ const Navbar = () => {
 
         <div className="flex items-center gap-5">
           <IoSearchOutline className="flex sm:hidden" />
-          <div className="cursor-pointer" onClick={handleToggle}>
-            {toggle ? <IoGridOutline /> : <IoListOutline />}
+          <div className="cursor-pointer" onClick={setStyle}>
+            {isList ? <IoGridOutline /> : <IoListOutline />}
           </div>
           <div role="button" className="">
             <div onClick={handleDropdown} className="w-10 rounded-full">

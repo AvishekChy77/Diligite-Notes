@@ -1,9 +1,14 @@
 import CreateNote from "./Components/CreateNote/CreateNote";
+import AllNotes from "./Components/Notes/Notes";
+import MyComponent from "./Components/Notes/Notes";
 
-export default function Home() {
+const Home = async () => {
   return (
     <main>
       <CreateNote />
+      <AllNotes />
     </main>
   );
-}
+};
+
+export default Home;
