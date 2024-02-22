@@ -27,7 +27,7 @@ const Navbar = () => {
     <>
       <div className="fixed top-0 w-full bg-white px-5 py-2 flex items-center gap-5 justify-between shadow">
         <div className="flex items-center gap-3 justify-between">
-          <FaBars onClick={handleSidebarToggle} />
+          <FaBars className="cursor-pointer" onClick={handleSidebarToggle} />
           <Link href="/" className=" text-xl font-serif font-semibold">
             Diligite Keep
           </Link>
@@ -44,7 +44,7 @@ const Navbar = () => {
         <div className="flex items-center gap-5">
           <IoSearchOutline className="flex sm:hidden" />
           <div className="cursor-pointer" onClick={setStyle}>
-            {isList ? <IoGridOutline /> : <IoListOutline />}
+            {isList ? <IoListOutline /> : <IoGridOutline />}
           </div>
           <div role="button" className="">
             <div onClick={handleDropdown} className="w-10 rounded-full">
