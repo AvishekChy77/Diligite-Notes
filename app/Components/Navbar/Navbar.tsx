@@ -1,71 +1,60 @@
 "use client";
-import React, { useContext, useState } from "react";
+import {
+  useCardStyle,
+  useDropdownStore,
+  useToggleStore,
+} from "@/app/Stores/Store";
 import Link from "next/link";
-import { IoPersonCircle } from "react-icons/io5";
-import { IoGridOutline } from "react-icons/io5";
-import { IoListOutline } from "react-icons/io5";
+import { useState } from "react";
 import { FaBars } from "react-icons/fa6";
-import { IoSearchOutline } from "react-icons/io5";
-import { useToggleStore } from "@/app/store";
+import {
+  IoGridOutline,
+  IoListOutline,
+  IoPersonCircle,
+  IoSearchOutline,
+} from "react-icons/io5";
+import Dropdown from "./Dropdown";
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(true);
+
   const handleSidebarToggle = useToggleStore((state) => state.setSidebarToggle);
-  const handleToggle = () => {
-    setToggle(!toggle);
-  };
+  const handleDropdown = useDropdownStore((state) => state.setDropdown);
+  const setStyle = useCardStyle((state) => state.setStyle);
+  const isList = useCardStyle((state) => state.isList);
+
   return (
-    <div className=" px-5 py-2 flex border-b items-center gap-5 justify-between">
-      <div className=" flex items-center gap-3 justify-between">
-        <FaBars onClick={handleSidebarToggle} />
-        <Link href="/" className=" text-xl font-serif font-semibold">
-          Diligite Keep
-        </Link>
-      </div>
-
-      <div className="flex-1 hidden sm:flex ">
-        <input
-          type="text"
-          placeholder={` Search`}
-          className="input focus:bg-white focus:border-0 h-[44px] w-full  bg-slate-100"
-        />
-      </div>
-
-      <div className="flex items-center gap-5">
-        <IoSearchOutline className="flex sm:hidden" />
-        <div className=" cursor-pointer" onClick={handleToggle}>
-          {toggle ? <IoGridOutline /> : <IoListOutline />}
+    <>
+      <div className="fixed top-0 w-full bg-white px-5 py-2 flex items-center gap-5 justify-between shadow">
+        <div className="flex items-center gap-3 justify-between">
+          <FaBars className="cursor-pointer" onClick={handleSidebarToggle} />
+          <Link href="/" className=" text-xl font-serif font-semibold">
+            Diligite Keep
+          </Link>
         </div>
-        <div className="dropdown dropdown-end">
-          <div
-            tabIndex={0}
-            role="button"
-            className="btn btn-ghost btn-circle avatar"
-          >
-            <div className="w-10 rounded-full">
+
+        <div className="flex-1 hidden sm:flex">
+          <input
+            type="text"
+            placeholder={` Search`}
+            className="input focus:bg-white rounded focus:border-0 h-[44px] w-full bg-slate-100"
+          />
+        </div>
+
+        <div className="flex items-center gap-5">
+          <IoSearchOutline className="flex sm:hidden" />
+          <div className="cursor-pointer" onClick={setStyle}>
+            {isList ? <IoListOutline /> : <IoGridOutline />}
+          </div>
+          <div role="button" className="">
+            <div onClick={handleDropdown} className="w-10 rounded-full">
               <IoPersonCircle size={44} />
             </div>
           </div>
-          <ul
-            tabIndex={0}
-            className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
-          >
-            <li>
-              <a className="justify-between">
-                Profile
-                <span className="badge">New</span>
-              </a>
-            </li>
-            <li>
-              <a>Settings</a>
-            </li>
-            <li>
-              <a>Logout</a>
-            </li>
-          </ul>
         </div>
       </div>
-    </div>
+      <Dropdown />
+    </>
   );
 };
 
