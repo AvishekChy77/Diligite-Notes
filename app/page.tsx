@@ -1,9 +1,9 @@
-import MakeCard from "./Components/MakeCard/MakeCard";
+import CreateNote from "./Components/CreateNote/CreateNote";
 
 export default function Home() {
   return (
     <main>
-      <MakeCard />
+      <CreateNote />
     </main>
   );
 }

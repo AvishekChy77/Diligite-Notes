@@ -4,12 +4,15 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && touch ./out/.nojekyll",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@nextui-org/react": "^2.2.9",
+    "framer-motion": "^11.0.3",
     "next": "14.1.0",
+    "prop-types": "^15.8.1",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^5.0.1",
@@ -20,7 +23,6 @@
     "@types/react": "^18.2.54",
     "@types/react-dom": "^18.2.18",
     "autoprefixer": "^10.0.1",
-    "daisyui": "^4.6.2",
     "eslint": "^8",
     "eslint-config-next": "14.1.0",
     "postcss": "^8",
