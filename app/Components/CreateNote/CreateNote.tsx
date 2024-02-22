@@ -23,6 +23,7 @@ const CreateNote = () => {
           value={text}
           onChange={handleChange}
           onClick={() => handleTruth(true)}
+
           className="w-full font-medium h-14 rounded-lg p-2 focus:outline-none resize-none text-black"
           placeholder={isTrue ? "Title" : "Take a note..."}
         ></textarea>
