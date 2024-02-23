@@ -1,5 +1,4 @@
 import { create } from "zustand";
-import useNoteState from "../Hooks/useNoteState";
 export interface ToggleStore {
   sidebarToggle: boolean;
   setSidebarToggle: () => void;

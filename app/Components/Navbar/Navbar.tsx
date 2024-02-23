@@ -5,7 +5,6 @@ import {
   useToggleStore,
 } from "@/app/Stores/Store";
 import Link from "next/link";
-import { useState } from "react";
 import { FaBars } from "react-icons/fa6";
 import {
   IoGridOutline,
@@ -13,11 +12,10 @@ import {
   IoPersonCircle,
   IoSearchOutline,
 } from "react-icons/io5";
+import ToggleTheme from "../Theme/ToggleTheme";
 import Dropdown from "./Dropdown";
 
 const Navbar = () => {
-  const [toggle, setToggle] = useState(true);
-
   const handleSidebarToggle = useToggleStore((state) => state.setSidebarToggle);
   const handleDropdown = useDropdownStore((state) => state.setDropdown);
   const setStyle = useCardStyle((state) => state.setStyle);
@@ -46,6 +44,7 @@ const Navbar = () => {
           <div className="cursor-pointer" onClick={setStyle}>
             {isList ? <IoListOutline /> : <IoGridOutline />}
           </div>
+          <ToggleTheme />
           <div role="button" className="">
             <div onClick={handleDropdown} className="w-10 rounded-full">
               <IoPersonCircle size={44} />
